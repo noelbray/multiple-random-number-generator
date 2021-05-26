@@ -13,25 +13,25 @@
 <body>
 
     <h1 class="mrng-h1">Multiple Random Number Generator</h1>
+
+    <label class="mrng-label" for="mrng-allow-negative-numbers">
+        <input class="mrng-input" type="checkbox" name="mrng-allow-negative-numbers" id="mrng-allow-negative-numbers">
+        <p class="mrng-paragraph">Allow Input Of Negative Numbers</p>
+    </label>
     
     <label class="mrng-label" for="mrng-number-of-runs">
         <p class="mrng-paragraph">Input how many numbers do you want generated:</p>
-        <input class="mrng-input" type="number" name="mrng-number-of-runs" id="mrng-number-of-runs">
+        <input class="mrng-input" type="number" min="0" name="mrng-number-of-runs" id="mrng-number-of-runs">
     </label>
 
     <label class="mrng-label" for="mrng-min-number">
         <p class="mrng-paragraph">Input the minimum number:</p>
-        <input class="mrng-input" type="number" name="mrng-min-number" id="mrng-min-number">
+        <input class="mrng-input" type="number" min="0" name="mrng-min-number" id="mrng-min-number">
     </label>
 
     <label class="mrng-label" for="mrng-max-number">
         <p class="mrng-paragraph">Input the maximum number</p>
-        <input class="mrng-input" type="number" name="mrng-max-number" id="mrng-max-number">
-    </label>
-
-    <label class="mrng-label" for="mrng-allow-negative-numbers">
-        <input class="mrng-input" type="checkbox" name="mrng-allow-negative-numbers" id="mrng-allow-negative-numbers" checked>
-        <p class="mrng-paragraph">Allow Negative Numbers</p>
+        <input class="mrng-input" type="number" min="0" name="mrng-max-number" id="mrng-max-number">
     </label>
 
     <button class="mrng-button" type="button">Get My Number(s)</button>
