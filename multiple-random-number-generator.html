@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content='This "Multiple Random Number Generator" will generate a positive or negative random number between the minimum and maximum numbers as many times as you want it to.'>
+
+    <title>Multiple Random Number Generator</title>
+</head>
+<body>
+
+    <h1>Multiple Random Number Generator</h1>
+    
+    <label class="mrng-label" for="mrng-number-of-runs">
+        <p class="mrng-paragraph">Input how many numbers do you want generated:</p>
+        <input class="mrng-input" type="number" name="mrng-number-of-runs" id="mrng-number-of-runs">
+    </label>
+
+    <label class="mrng-label" for="mrng-min-number">
+        <p class="mrng-paragraph">Input the minimum number:</p>
+        <input class="mrng-input" type="number" name="mrng-min-number" id="mrng-min-number">
+    </label>
+
+    <label class="mrng-label" for="mrng-max-number">
+        <p class="mrng-paragraph">Input the maximum number</p>
+        <input class="mrng-input" type="number" name="mrng-max-number" id="mrng-max-number">
+    </label>
+
+    <label class="mrng-label" for="mrng-allow-negative-numbers">
+        <input class="mrng-input" type="checkbox" name="mrng-allow-negative-numbers" id="mrng-allow-negative-numbers" checked>
+        <p class="mrng-paragraph">Allow Negative Numbers</p>
+    </label>
+
+    <button type="button">Get My Number(s)</button>
+
+    <p class="mrng-paragraph">Your number(s) will be displayed below.</p>
+    <p class="mrng-paragraph mrng-output"></p>
+
+</body>
+</html>
