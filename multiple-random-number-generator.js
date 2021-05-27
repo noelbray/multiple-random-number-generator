@@ -12,3 +12,19 @@ const mrngOutput = document.querySelector('.mrng-output');
 // mrngMinNumber.value = 44444444444444444444444444444;
 // mrngMaxNumber.value = 2e88;
 // mrngRunButton.style.backgroundColor = "white";
+
+mrngAllowNegativeNumbers.addEventListener(
+    'blur',
+    () => {
+        if(mrngAllowNegativeNumbers.checked) {
+            mrngNumberOfRuns.min = "";
+            mrngMinNumber.min = "";
+            mrngMaxNumber.min = "";
+        }
+        else {
+            mrngNumberOfRuns.min = "0";
+            mrngMinNumber.min = "0";
+            mrngMaxNumber.min = "0";
+        }
+    }
+);
