@@ -7,12 +7,15 @@ const mrngOutput = document.querySelector('.mrng-output');
 const mrngNumberInputs = document.querySelectorAll('input[type=number]');
 
 // Test Element Connection: 
+
 // mrngOutput.textContent = "Test Successful, multiple-random-number-generator.js linked."
 // mrngAllowNegativeNumbers.checked = "checked"; 
 // mrngNumberOfRuns.value = "10";
 // mrngMinNumber.value = 44444444444444444444444444444;
 // mrngMaxNumber.value = 2e88;
 // mrngRunButton.style.backgroundColor = "white";
+
+// addEventListeners:
 
 mrngAllowNegativeNumbers.addEventListener(
     'blur',
@@ -29,6 +32,17 @@ mrngAllowNegativeNumbers.addEventListener(
         }
     }
 );
+
+// Helper Functions:
+
+function preventNegativeSign(element) {
+    if(!isChecked(mrngAllowNegativeNumbers)) {
+        let negativeReplacement = element.value.replace('-', '');
+        element.value = negativeReplacement;
+        return negativeReplacement;
+    }
+    return;
+}
 
 function isChecked(element) {
     return element.checked ? true : false;
