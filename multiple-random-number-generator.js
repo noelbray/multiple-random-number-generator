@@ -4,6 +4,7 @@ const mrngMinNumber = document.getElementById('mrng-min-number');
 const mrngMaxNumber = document.getElementById('mrng-max-number');
 const mrngRunButton = document.getElementById('mrng-run-button');
 const mrngOutput = document.querySelector('.mrng-output');
+const mrngNumberInputs = document.querySelectorAll('input[type=number]');
 
 // Test Element Connection: 
 // mrngOutput.textContent = "Test Successful, multiple-random-number-generator.js linked."
