@@ -29,3 +29,12 @@ mrngAllowNegativeNumbers.addEventListener(
         }
     }
 );
+
+function includesNegativeSign() {
+    const inputValues = [...mrngNumberInputs].map(input => input.value);
+    const someNegative = inputValues.some(value => value.includes("-"));
+    if (mrngAllowNegativeNumbers.checked && someNegative) {
+        return true;
+    }
+    return false;
+}
