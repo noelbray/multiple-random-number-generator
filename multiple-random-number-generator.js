@@ -30,6 +30,10 @@ mrngAllowNegativeNumbers.addEventListener(
     }
 );
 
+function isChecked(element) {
+    return element.checked ? true : false;
+}
+
 function includesNegativeSign() {
     const inputValues = [...mrngNumberInputs].map(input => input.value);
     const someNegative = inputValues.some(value => value.includes("-"));
