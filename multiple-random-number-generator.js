@@ -46,6 +46,20 @@ mrngAllowNegativeNumbers.addEventListener(
 
 // Helper Functions:
 
+function changeMinimumValue(checkBoxElement, inputNumberElements = mrngNumberInputs) {
+    let inputElementsArray = [...inputNumberElements]
+    if (isChecked(checkBoxElement)) {
+        inputElementsArray.forEach(
+            input => input.min = ""
+        )
+        return;
+    }
+    inputElementsArray.forEach(
+        input => input.min = "0"
+    )
+    return; 
+}
+
 function preventNegativeSign(element) {
     if(!isChecked(mrngAllowNegativeNumbers)) {
         let negativeReplacement = element.value.replace('-', '');
