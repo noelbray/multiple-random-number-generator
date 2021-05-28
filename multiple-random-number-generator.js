@@ -44,6 +44,14 @@ mrngAllowNegativeNumbers.addEventListener(
     }
 )
 
+mrngAllowNegativeNumbers.addEventListener(
+    'input',
+    () => {
+        clearInputs();
+        changeMinValues(mrngAllowNegativeNumbers);
+    }
+)
+
 // Helper Functions:
 
 function clearInputs(inputElements = [...mrngNumberInputs]) {
