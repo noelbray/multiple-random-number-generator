@@ -33,6 +33,17 @@ mrngAllowNegativeNumbers.addEventListener(
     }
 );
 
+[...mrngNumberInputs].forEach(
+    input => {
+        input.addEventListener(
+            'input',
+            () => {
+                preventNegativeSign(input);
+            }
+        );        
+    }
+)
+
 // Helper Functions:
 
 function preventNegativeSign(element) {
