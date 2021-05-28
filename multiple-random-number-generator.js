@@ -75,9 +75,10 @@ function changeMinValues(checkBoxElement, inputNumberElements = mrngNumberInputs
 }
 
 function preventNegativeSign(element) {
-    if(!isChecked(mrngAllowNegativeNumbers)) {
-        let negativeReplacement = element.value.replace('-', '');
+    if(!isChecked(mrngAllowNegativeNumbers) && element.value.includes('-')) {
+        let negativeReplacement = element.value.replace(/^-/, '');
         element.value = negativeReplacement;
+        console.log(negativeReplacement);
         return negativeReplacement;
     }
     return;
