@@ -63,7 +63,7 @@ function alertIncorrectValue(inputElement, index) {
 
     if (inputValue === '' && !alertP) {
         let alertP = document.createElement('p');
-        alertP.id = `alertp${index}`;
+        alertP.id = `alertP${index}`;
         alertP.textContent = "Please enter a valid number."
         inputElement.parentElement.appendChild(alertP);
     }
