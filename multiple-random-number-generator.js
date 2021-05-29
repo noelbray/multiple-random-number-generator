@@ -40,6 +40,7 @@ mrngAllowNegativeNumbers.addEventListener(
             () => {
                 preventNegativeSign(input);
                 alertIncorrectValue(input, index);
+                removeAlertP(input, index);
             }
         );        
     }
