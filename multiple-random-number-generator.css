@@ -38,7 +38,7 @@
 .mrng-button {
     cursor: pointer;
     display: block;
-    margin: 0 auto 15px;
+    margin: 31px auto 15px; /* 31px is the amount of space between the label's bottom margin and the label's 1st element's, paragraph's top margin.*/
     padding: 5px;
 }
 
@@ -59,4 +59,8 @@
 .mrng-button:active {
     background-color: rgb(123, 215, 27);
     color: rgb(0, 0, 0);
+}
+
+[id^='alertP'] {
+    color: rgb(238, 14, 14);
 }
