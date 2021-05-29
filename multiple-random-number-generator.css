@@ -64,3 +64,12 @@
 [id^='alertP'] {
     color: rgb(238, 14, 14);
 }
+
+.alert {
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(238, 14, 14);
+}
+
+.alert:focus {
+    outline: none;
+}
