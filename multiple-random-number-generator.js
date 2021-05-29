@@ -34,11 +34,12 @@ mrngAllowNegativeNumbers.addEventListener(
 );
 
 [...mrngNumberInputs].forEach(
-    input => {
+    (input, index) => {
         input.addEventListener(
             'input',
             () => {
                 preventNegativeSign(input);
+                alertIncorrectValue(input, index);
             }
         );        
     }
