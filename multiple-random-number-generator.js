@@ -54,6 +54,20 @@ mrngAllowNegativeNumbers.addEventListener(
 
 // Helper Functions:
 
+function alertIncorrectValue(inputElement, index) {
+    let alertP = document.getElementById(`alertP${index}`);
+    let inputValue = inputElement.value;
+
+    if (alertP || inputValue !== '') return;
+
+    if (inputValue === '' && !alertP) {
+        let alertP = document.createElement('p');
+        alertP.id = `alertp${index}`;
+        alertP.textContent = "Please enter a valid number."
+        inputElement.parentElement.appendChild(alertP);
+    }
+}
+
 function clearInputs(inputElements = [...mrngNumberInputs]) {
     inputElements.forEach(
         input => input.value = ""
@@ -77,8 +91,9 @@ function changeMinValues(checkBoxElement, inputNumberElements = mrngNumberInputs
 function preventNegativeSign(element) {
     if(!isChecked(mrngAllowNegativeNumbers) && element.value.includes('-')) {
         let negativeReplacement = element.value.replace(/^-/, '');
+
         element.value = negativeReplacement;
-        console.log(negativeReplacement);
+
         return negativeReplacement;
     }
     return;
