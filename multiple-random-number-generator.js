@@ -55,6 +55,15 @@ mrngAllowNegativeNumbers.addEventListener(
 
 // Helper Functions:
 
+function removeAlertP(inputElement, index) {
+    let alertP = document.getElementById(`alertP${index}`);
+    let inputValue = inputElement.value;
+
+    if (inputValue !== '' && alertP) {
+        alertP.remove();
+    }
+}
+
 function alertIncorrectValue(inputElement, index) {
     let alertP = document.getElementById(`alertP${index}`);
     let inputValue = inputElement.value;
