@@ -41,6 +41,7 @@ mrngAllowNegativeNumbers.addEventListener(
                 preventNegativeSign(input);
                 alertIncorrectValue(input, index);
                 removeAlertP(input, index);
+                addRemoveAlertClass(input, index);
             }
         );        
     }
@@ -55,6 +56,18 @@ mrngAllowNegativeNumbers.addEventListener(
 )
 
 // Helper Functions:
+
+function addRemoveAlertClass(inputElement, index) {
+    let alertP = document.getElementById(`alertP${index}`);
+    let inputClassList = inputElement.classList;
+
+    if(alertP) {
+        inputClassList.add('alert');
+    }
+    else {
+        inputClassList.remove('alert');
+    }
+}
 
 function removeAlertP(inputElement, index) {
     let alertP = document.getElementById(`alertP${index}`);
