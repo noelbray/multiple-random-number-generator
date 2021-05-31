@@ -5,6 +5,7 @@ const mrngMaxNumber = document.getElementById('mrng-max-number');
 const mrngRunButton = document.getElementById('mrng-run-button');
 const mrngOutput = document.querySelector('.mrng-output');
 const mrngNumberInputs = document.querySelectorAll('input[type=number]');
+const mrngOutputIntegers = document.getElementById('mrng-output-integers');
 
 // Test Element Connection: 
 
