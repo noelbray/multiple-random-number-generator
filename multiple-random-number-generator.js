@@ -45,7 +45,7 @@ mrngAllowNegativeNumbers.addEventListener(
             }
         );        
     }
-)
+);
 
 mrngAllowNegativeNumbers.addEventListener(
     'input',
@@ -53,7 +53,7 @@ mrngAllowNegativeNumbers.addEventListener(
         clearInputs();
         changeMinValues(mrngAllowNegativeNumbers);
     }
-)
+);
 
 // Helper Functions:
 
