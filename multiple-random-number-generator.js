@@ -58,6 +58,13 @@ mrngAllowNegativeNumbers.addEventListener(
 
 // Helper Functions:
 
+function numberInputsHaveNumbers(listOfElements = mrngNumberInputs) {
+    let inputArray = [...listOfElements];
+    return inputArray.every(
+        input => input.value !== ''
+    );
+}
+
 function addRemoveAlertClass(inputElement, index) {
     let alertP = document.getElementById(`alertP${index}`);
     let inputClassList = inputElement.classList;
