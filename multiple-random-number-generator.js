@@ -58,6 +58,21 @@ mrngAllowNegativeNumbers.addEventListener(
 
 // Helper Functions:
 
+function numbersToGenerate() {
+    let loopCount = +mrngNumberOfRuns.value;
+
+    mrngOutput.innerText = "";
+
+    // mrngOutput.style.whiteSpace = "nowrap";
+    // white-space: nowrap; causes an element to accept whitespace, line breaks (\n) and such. // I found this out after reading https://forum.freecodecamp.org/t/how-to-add-new-line-in-string/17763
+    // Instead of setting whiteSpace through the DOM, I set it in the CSS rule for .mrng-output.
+    // For some reason this isn't working with innerHTML nor textContent, but only with innerText.
+
+    for (let i = 0; i < loopCount; i++) {
+        mrngOutput.innerText += `${randomNumberGenerator()}\n`;
+    }
+}
+
 function randomNumberGenerator(checkBoxInput = mrngOutputIntegers) {
     let min = parseFloat(mrngMinNumber.value);
 
