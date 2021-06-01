@@ -73,3 +73,7 @@
 .alert:focus {
     outline: none;
 }
+
+.mrng-output {
+    white-space: nowrap;
+}
