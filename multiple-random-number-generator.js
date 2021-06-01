@@ -58,6 +58,23 @@ mrngAllowNegativeNumbers.addEventListener(
 
 // Helper Functions:
 
+function randomNumberGenerator(checkBoxInput = mrngOutputIntegers) {
+    let min = parseFloat(mrngMinNumber.value);
+
+    let max = parseFloat(mrngMaxNumber.value);
+
+    if(isChecked(checkBoxInput)) {
+        let integer = Math.floor(Math.random() * (max - min + 1) + min);
+
+        return integer;
+    }
+    else {
+        let floatingPointNumber = Math.fround(Math.random() * (max - min) + min);
+
+        return floatingPointNumber;
+    }
+}
+
 function numberInputsHaveNumbers(listOfElements = mrngNumberInputs) {
     let inputArray = [...listOfElements];
     return inputArray.every(
