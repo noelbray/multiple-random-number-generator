@@ -56,6 +56,33 @@ mrngAllowNegativeNumbers.addEventListener(
     }
 );
 
+mrngRunButton.addEventListener(
+    'click',
+    () => {
+
+        if (numberInputsHaveNumbers() === false) {
+            alert('One or more input fields are empty. Please make sure all input fields have a valid number.');
+            [...mrngNumberInputs].forEach(
+                input => {
+                    if (input.value === '') {
+                        input.classList.add('alert');
+                    }
+                }
+            )
+            return;
+        }
+
+        if (+mrngMaxNumber.value < +mrngMinNumber.value) {
+            alert('Please input a maximum number that is greater than the minimum number.');
+            mrngMaxNumber.value = "";
+            mrngMaxNumber.classList.add('alert');
+            return;
+        }
+
+        numbersToGenerate();
+    }
+);
+
 // Helper Functions:
 
 function numbersToGenerate() {
