@@ -13,6 +13,31 @@
     <!-- add mocha css, to show results -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.css">
 
+    <style>
+        #run-automated-tests-button {
+            background-color: greenyellow;
+            border: 2px solid black;
+            border-radius: 5px;
+            color: black;
+            display: block;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 60px 50px 0;
+        }
+
+        #run-automated-tests-button:hover {
+            background-color: limegreen;
+        }
+
+        #run-automated-tests-button:active {
+            background-color: greenyellow;
+        }
+
+        #mocha {
+            margin-top: 20px; /* Mocha had margin: 60px 50px; */
+        }
+    </style>
+
     <!-- add mocha framework code -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.js"></script>
     <script>
@@ -37,9 +62,15 @@
     <title>Automated Testing For Multiple Random Number Generator</title>
 </head>
 <body>
+    <!-- Run Mocha Automated Test Button: styled with internal style in the head and script is at the end of the body's end tag. -->
+    <button id="run-automated-tests-button">
+        Run Automated Test
+    </button>
 
     <!-- the root, target element with id="mocha" will contain the test results -->
-    <div id="mocha">Mocha - Automated Test Will Be Displayed Just Below Here:</div>
+    <div id="mocha">
+        Mocha - Automated Test Will Be Displayed Just Below Here:
+    </div>
 
     <!-- Beginning of HTML from multiple-random-number-generator.html -->
 
@@ -77,8 +108,19 @@
     <!-- End of HTML from multiple-random-number-generator.html -->
 
     <!-- run automated test -->
-    <script defer>
+    <!-- <script defer>
         mocha.run();
+    </script> -->
+    <script>
+        let runAutomatedTestsButton = document.getElementById('run-automated-tests-button');
+
+        runAutomatedTestsButton.addEventListener(
+            'click',
+            () => {
+                mocha.run();
+            },
+            {once: true}
+        );
     </script>
 </body>
 </html>
