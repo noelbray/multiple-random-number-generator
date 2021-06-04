@@ -1,22 +1,25 @@
-describe("function isChecked", function() {
+describe("Multiple Random Number Generator's Function Tests Suite", function() {
 
-    it("If the input element's checked attribute's value is false, return false.", function() {
-        let inputElement = document.createElement('input');
+    describe("function isChecked", function() {
 
-        assert.equal(isChecked(inputElement), false);
-    });
+        it("If the input element's checked attribute's value is false, return false.", function() {
+            let inputElement = document.createElement('input');
 
-    it("If the input element's checked attribute's value is true, return true.", function() {
-        let inputElement = document.createElement('input');
+            assert.equal(isChecked(inputElement), false);
+        });
 
-        inputElement.checked = true;
+        it("If the input element's checked attribute's value is true, return true.", function() {
+            let inputElement = document.createElement('input');
 
-        assert.equal(isChecked(inputElement), true);
-    });
+            inputElement.checked = true;
 
-    it("Based on mrngAllowNegativeNumbers' current checked attribute's boolean value, should return true if checked is true or false if checked is false.", function() {
-        let booleanValue = mrngAllowNegativeNumbers.checked ? true : false;
+            assert.equal(isChecked(inputElement), true);
+        });
 
-        assert.equal(isChecked(mrngAllowNegativeNumbers), booleanValue);
+        it("Based on mrngAllowNegativeNumbers' current checked attribute's boolean value, should return true if checked is true or false if checked is false.", function() {
+            let booleanValue = mrngAllowNegativeNumbers.checked ? true : false;
+
+            assert.equal(isChecked(mrngAllowNegativeNumbers), booleanValue);
+        });
     });
 });
