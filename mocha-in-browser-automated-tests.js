@@ -9,7 +9,8 @@ describe("function isChecked", function() {
     it("If the input element's checked attribute's value is true, return true.", function() {
         let inputElement = document.createElement('input');
 
-        inputElement.checked = "true";
+        inputElement.checked = true;
+
         assert.equal(isChecked(inputElement), true);
     });
 
