@@ -1,4 +1,33 @@
 describe("Multiple Random Number Generator's Function Tests Suite", function() {
+    
+    describe("function clearInputs", function() {
+
+        it(`Given a list of input elements, clearInputs sets their attribute value to "".`, function() {
+            let elementList = [];
+            let expectedOutput = [];
+
+            for (let i = 0; i <= 4; i++) {
+                let inputElement = document.createElement('input');
+
+                inputElement.value = "Clear me.";
+
+                elementList.push(inputElement);
+
+                expectedOutput.push("");
+            }
+
+            // console.log(elementList);
+            // console.log(expectedOutput);
+
+            clearInputs(elementList);
+
+            let valueValues = elementList.map(element => element.value);
+
+            expect(valueValues).to.eql(expectedOutput, "Every element's value attribute should be empty, ''");
+
+            // assert(false);
+        });
+    });
 
     describe("function changeMinValues", function() {
 
