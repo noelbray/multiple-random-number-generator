@@ -1,5 +1,35 @@
 describe("Multiple Random Number Generator's Function Tests Suite", function() {
 
+    describe("function removeAlertP", function() {
+
+        it(`When an input, type number, element's value attribute is not empty and a p element with id alertP0 exists for/below the input element, run removeAlertP and then check to see if alertP has been removed, is null.`, function() {
+            let inputElement = document.createElement('input');
+            let alertP = document.createElement('p');
+            let forCreatingRemovingElements = document.getElementById('for-creating-removing-elements');
+
+            inputElement.type = 'number';
+            inputElement.value = '8';
+
+            alertP.textContent = "There is an Error...";
+            alertP.id = "alertP0";
+
+            forCreatingRemovingElements.appendChild(inputElement);
+
+            forCreatingRemovingElements.appendChild(alertP);
+
+            removeAlertP(inputElement, "0");
+
+            let alertP0 = document.getElementById('alertP0');
+
+            assert.isNull(alertP0);
+
+            inputElement.remove();
+
+            // assert.equal(false);
+            // assert(false);
+        });
+    });
+
     describe("function alertIncorrectValue", function() {
 
         it(`If element with id="alertP" exists, return undefined.`, function() {
