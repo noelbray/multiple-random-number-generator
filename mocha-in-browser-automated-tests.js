@@ -1,4 +1,61 @@
 describe("Multiple Random Number Generator's Function Tests Suite", function() {
+
+    describe("function alertIncorrectValue", function() {
+
+        it(`If element with id="alertP" exists, return undefined.`, function() {
+            let element = document.createElement('p');
+            let body = document.querySelector('body');
+
+            element.id = "alertP";
+
+            element.textContent = "I'm here."
+
+            body.prepend(element);
+
+            assert.equal(alertIncorrectValue("", ""), undefined);
+
+            body.removeChild(element);
+
+            // assert(false);
+        });
+
+        it(`If alertP element does not exist and the input type number elements value is not equal to '', return undefined.`, function() {
+            let inputElement = document.createElement('input');
+
+            inputElement.type = "number";
+
+            inputElement.value = '444492137498712947124651648774738388392';
+
+            assert.equal(alertIncorrectValue(inputElement, ""), undefined);
+        });
+
+        it(`If the input element's value attribute's value is empty, '', and alertP is null, create alertP and append it below the inputElement.`, function() {
+            let inputElement = document.createElement('input');
+            let forCreatingRemovingElements = document.querySelector('#for-creating-removing-elements');
+
+            inputElement.type = "number";
+            inputElement.id = 'test';
+            inputElement.value = "";
+            inputElement.style.marginTop = "20px";
+
+            forCreatingRemovingElements.prepend(inputElement);
+
+            // console.log(inputElement);
+
+            alertIncorrectValue(inputElement, '');
+
+            let alertP = document.getElementById('alertP');
+
+            // assert.equal(alertP.id, "alertP"); // This works. It checks to see if alertP exists by seeing if it has an id that equals alertP, but I should look at chai to see if there is something that will check to see if the element was created, not equal to null.
+
+            assert.isNotNull(alertP);
+
+            forCreatingRemovingElements.removeChild(alertP);
+            forCreatingRemovingElements.removeChild(inputElement);
+
+            // assert(false);
+        });
+    })
     
     describe("function clearInputs", function() {
 
