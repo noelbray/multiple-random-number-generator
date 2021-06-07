@@ -1,5 +1,50 @@
 describe("Multiple Random Number Generator's Function Tests Suite", function() {
 
+    describe("function addRemoveAlertClass", function() {
+
+        it("When an alert p element exists for an input, type number, element, run the function addRemoveAlertClass and then check to see if the input element has the class alert.", function() {
+            let inputElement = document.createElement('input');
+            let alertP1 = document.createElement('p');
+
+            alertP1.id = 'alertP1';
+            alertP1.textContent = "There's a hiccup...."
+
+            let forCreatingRemovingElements = document.getElementById('for-creating-removing-elements');
+
+            forCreatingRemovingElements.appendChild(inputElement);
+
+            forCreatingRemovingElements.appendChild(alertP1);
+
+            addRemoveAlertClass(inputElement, '1');
+
+            let alertClassPresent = inputElement.classList.contains('alert');
+
+            assert.equal(alertClassPresent, true);
+
+            alertP1.remove();
+
+            inputElement.remove();
+        });
+
+        it(`When the input has the class "alert" and does not have an associated alert p element that exists for it, addRemoveAlertClass should remove the alert class from it.`, function() {
+            let inputElement = document.createElement('input');
+
+            inputElement.classList.add('alert');
+
+            let forCreatingRemovingElements = document.getElementById('for-creating-removing-elements');
+
+            forCreatingRemovingElements.appendChild(inputElement);
+
+            addRemoveAlertClass(inputElement, '');
+
+            let classAlertPresent = inputElement.classList.contains('alert');
+
+            assert.equal(classAlertPresent, false);
+
+            inputElement.remove();
+        });
+    });
+
     describe("function removeAlertP", function() {
 
         it(`When an input, type number, element's value attribute is not empty and a p element with id alertP0 exists for/below the input element, run removeAlertP and then check to see if alertP has been removed, is null.`, function() {
