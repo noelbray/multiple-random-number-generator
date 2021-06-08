@@ -1,5 +1,52 @@
 describe("Multiple Random Number Generator's Function Tests Suite", function() {
 
+    describe("function numberInputsHaveNumbers", function() {
+
+        it(`Given a list of input elements, type number, with value attributes not equal to empty which means they have valid numbers, then numberInputsHaveNumber should return true.`, function() {
+            let inputElementList = [];
+
+            for(let i = 0; i < 3; i++) {
+                let inputElement = document.createElement('input');
+
+                inputElement.type = "number";
+
+                inputElement.value = i * 10;
+
+                inputElementList.push(inputElement);
+            }
+
+            // console.log(inputElementList[2].value);
+
+            let everyValueIsNumber = numberInputsHaveNumbers(inputElementList);
+
+            assert.equal(everyValueIsNumber, true);
+        });
+
+        it(`Given a list of input elements, type number, with value attributes equal to empty which means they don't have valid numbers, then numberInputsHaveNumber should return false.`, function() {
+            let inputElements = [];
+
+            for (let i = 10; i > 0; i--) {
+                let inputElement = document.createElement('input');
+
+                inputElement.type = "number";
+
+                inputElement.value = "";
+
+                inputElements.push(inputElement);
+            }
+
+            // console.log(inputElements, inputElements[inputElements.length - 1], inputElements[inputElements.length - 1].value);
+
+            let everyValueIsNumber = numberInputsHaveNumbers(inputElements);
+
+            // console.log(typeof everyValueIsNumber, everyValueIsNumber);
+
+            assert.equal(everyValueIsNumber, false);
+
+            // assert(false);
+        });
+    });
+
     describe("function addRemoveAlertClass", function() {
 
         it("When an alert p element exists for an input, type number, element, run the function addRemoveAlertClass and then check to see if the input element has the class alert.", function() {
