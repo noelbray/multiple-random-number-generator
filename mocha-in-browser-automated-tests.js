@@ -58,7 +58,7 @@ describe("Multiple Random Number Generator's Function Tests Suite", function() {
 
                 let isWholeNumber = Number.isInteger(randomNumber);
 
-                let isIntegerBetweenMinMax = (isWholeNumber && (randomNumber > min) && (randomNumber < max)) ? true : false;
+                let isIntegerBetweenMinMax = (isWholeNumber && (randomNumber >= min) && (randomNumber <= max)) ? true : false;
 
 
                 if (isWholeNumber !== true) {
