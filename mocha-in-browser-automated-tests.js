@@ -1,5 +1,61 @@
 describe("Multiple Random Number Generator's Function Tests Suite", function() {
 
+    describe("function randomNumberGenerator - whole number output", function() {
+
+        let number = 1;
+
+        while(true) {
+            if (number <= -3) {
+                number = 1;
+                break;
+            }
+
+            makeWholeNumberTest();
+
+            number--;
+        }
+
+        function minWholeNumber() {
+            return number + 1;
+        }
+
+        function maxWholeNumber() {
+            return Math.floor(Math.random() * (100 - (number + 1) + 1) + (number + 1)); // Generate a number between 0 and 100
+        }
+
+        function makeWholeNumberTest() {
+            let min = minWholeNumber();
+            let max = maxWholeNumber();
+            // console.log("min", min, "max", max);
+
+            // I used console.log and tried different ways of using minWholeNumber and maxWholeNumber but I still couldn't figure out why the min and max values were logging to the console before I even clicked the"mrngRunButton".
+
+            // let min;
+            // let max;
+            // console.log("min", min, "max", max);
+
+            it(`Check if a whole number is returned when randomNumberGenerator is passed an input type checkbox element that has a checked attribute equal to true and the mrngMinNumber.value = ${min /*= minWholeNumber()*/} and mrngMaxNumber.value = ${max /*= maxWholeNumber()*/}.`, function() {
+
+                mrngOutputIntegers.checked = true;
+
+                mrngMinNumber.value = min;
+
+                mrngMaxNumber.value = max;
+
+                let randomNumber = randomNumberGenerator(mrngOutputIntegers);
+
+                // console.log("min", min, "randomNumber", randomNumber, "max", max);
+
+                let isWholeNumber = Number.isInteger(randomNumber);
+
+                // console.log("isWholeNumber", isWholeNumber);
+
+                assert.equal(isWholeNumber, true);
+            });
+
+        }
+    });
+
     describe("function numberInputsHaveNumbers", function() {
 
         it(`Given a list of input elements, type number, with value attributes not equal to empty which means they have valid numbers, then numberInputsHaveNumber should return true.`, function() {
