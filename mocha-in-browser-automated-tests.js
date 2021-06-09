@@ -53,6 +53,35 @@ describe("Multiple Random Number Generator's Function Tests Suite", function() {
                 assert.equal(isWholeNumber, true);
             });
 
+            it(`The returned whole number is between the min and max values.`, function() {
+                let randomNumber = randomNumberGenerator(mrngOutputIntegers);
+
+                let isWholeNumber = Number.isInteger(randomNumber);
+
+                let isIntegerBetweenMinMax = (isWholeNumber && (randomNumber > min) && (randomNumber < max)) ? true : false;
+
+
+                if (isWholeNumber !== true) {
+                    assert.fail("", "", `The returned number ${randomNumber} is not a whole number.`);
+                    // For some reason, asser.fail(`...`) doesn't work. So I had to put an empty string value for the 1st two arguments, parameters.
+                }
+
+                if(randomNumber < min) {
+                    assert.fail("", "", `The returned number ${randomNumber} is less than the min number ${min}.`);
+                }
+
+                if(randomNumber > max) {
+                    assert.fail("", "", `The returned number ${randomNumber} is greater than the max number ${max}.`);
+                }
+
+                assert.equal(isIntegerBetweenMinMax, true, `min = ${min} | returned number = ${randomNumber} | max = ${max}`);
+
+                mrngOutputIntegers.checked = false;
+
+                mrngMinNumber.value = "";
+
+                mrngMaxNumber.value = "";
+            });
         }
     });
 
