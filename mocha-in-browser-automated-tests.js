@@ -1,5 +1,50 @@
 describe("Multiple Random Number Generator's Function Tests Suite", function() {
 
+    describe("function randomNumberGenerator - floating point number output", function() {
+
+        let number = 2;
+
+        while(true) {
+            if (number <= -3) {
+                number = 1;
+                break;
+            }
+
+            makeFloatingPointNumberTest();
+
+            number--;
+        }
+
+        function minFloatingPointNumber() {
+            return Math.fround(Math.random() * number);
+        }
+
+        function maxFloatingPointNumber() {
+            return Math.fround(Math.random() * (100 - (number + 1)) + (number + 1));
+        }
+
+        function makeFloatingPointNumberTest() {
+            let min = minFloatingPointNumber();
+            let max = maxFloatingPointNumber();
+
+            it(`A floating point number should be returned by randomNumberGenerator when the arugment it is passed is an input type checkbox element that has a checked attribute equal to false and when the mrngMinNumber.value = ${min} and when the mrngMaxNumber.value = ${max}.`, function() {
+                mrngOutputIntegers.checked = false;
+
+                mrngMinNumber.value = min;
+
+                mrngMaxNumber.value = max;
+
+                let randomNumber = randomNumberGenerator(mrngOutputIntegers);
+
+                // console.log("min", min, "randomNumber", randomNumber, "max", max);
+
+                let isWholeNumber = Number.isInteger(randomNumber);
+
+                assert.equal(isWholeNumber, false);
+            });
+        }
+    });
+
     describe("function randomNumberGenerator - whole number output", function() {
 
         let number = 1;
