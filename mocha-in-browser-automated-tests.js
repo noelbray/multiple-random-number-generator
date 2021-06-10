@@ -6,13 +6,20 @@ describe("Multiple Random Number Generator's Function Tests Suite", function() {
 
         while(true) {
             if (number <= -3) {
-                number = 1;
+                number = 2;
                 break;
             }
 
             makeFloatingPointNumberTest();
 
             number--;
+        }
+
+        // console.log('number', number);
+
+        while(number >= -3) {
+            makeWithinMinMaxTest();
+            number--
         }
 
         function minFloatingPointNumber() {
@@ -41,6 +48,38 @@ describe("Multiple Random Number Generator's Function Tests Suite", function() {
                 let isWholeNumber = Number.isInteger(randomNumber);
 
                 assert.equal(isWholeNumber, false);
+            });
+        }
+
+        function makeWithinMinMaxTest() {
+            let min = minFloatingPointNumber();
+            let max = maxFloatingPointNumber();
+
+            it(`The floating point number returned by randomNumberGenerator is within ${min} (min) and ${max} (max).`, function() {
+                mrngMinNumber.value = min;
+
+                mrngMaxNumber.value = max;
+
+                let randomNumber = randomNumberGenerator(mrngOutputIntegers);
+
+                let isWholeNumber = Number.isInteger(randomNumber);
+
+                let isWithinMinMax = (!isWholeNumber && (randomNumber >= min) && (randomNumber <= max)) ? true : false;
+
+                if (isWholeNumber === true) {
+                    assert.fail("", "", `\nThe returned number ${randomNumber} is a whole number and should be a floating point number.`)
+                }
+
+                if (randomNumber < min) {
+                    assert.fail("", "", `\nThe returned number ${randomNumber} is less than the min number ${min}.`);
+                }
+
+                if (randomNumber > max) {
+                    assert.fail("", "", `\nThe returned number ${randomNumber} is greater than the max number ${max}.`);
+                }
+
+                assert.equal(isWithinMinMax, true, `\nThe returned number is not within the min and max numbers. \n min number: ${min} | returned number: ${randomNumber} | max number: ${max}`);
+
             });
         }
     });
