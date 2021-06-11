@@ -34,6 +34,21 @@ describe("Multiple Random Number Generator's Function Tests Suite", function() {
             mrngMaxNumber.value = "";
         });
 
+        function returnNumber(number, type = "integer", sign = "+") {
+            // let randomNumber = Math.floor(Math.random() * 12); // was going to use to randomly decide to return a whole number or floating point number with if condition (randomNumber <= 5);
+
+            let operand = (sign === "+") ? 1 : -1;
+
+            if (type === "integer") {
+                // return a whole number
+
+                return Math.floor(Math.random() * number) * operand;
+            }
+            // return a floating point number
+
+            return Math.fround(Math.random() * number) * operand;
+        }
+
         function makeNumbersToGenerateTest( 
             allowNegatives = false, 
             outputIntegers = true, 
