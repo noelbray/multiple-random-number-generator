@@ -1,5 +1,20 @@
 describe("Multiple Random Number Generator's Function Tests Suite", function() {
 
+    describe("function numbersToGenerate", function() {
+
+        it("When mrngNumberOfRuns.value = 0 and a valid number is inputed into the minimum and maximum number inputs, numbers should not be outputed to mrngOutput, mrngOutput.innerText should be empty.", function () {
+            mrngNumberOfRuns.value = 0;
+
+            mrngMinNumber.value = 3;
+
+            mrngMaxNumber.value = 8;
+
+            numbersToGenerate();
+
+            assert.equal(mrngOutput.innerText, "", `mrngOutput.innerText is "${mrngOutput.innerText}".`);
+        });
+    });
+
     describe("function randomNumberGenerator - floating point number output", function() {
 
         let number = 2;
