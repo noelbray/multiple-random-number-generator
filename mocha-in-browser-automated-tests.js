@@ -13,6 +13,26 @@ describe("Multiple Random Number Generator's Function Tests Suite", function() {
 
             assert.equal(mrngOutput.innerText, "", `mrngOutput.innerText is "${mrngOutput.innerText}".`);
         });
+
+        it("When mrngAllowNegative.checked = true, mrngNumberOfRuns.value = -5, and mrngMinNumber = 3, and mrngNumber = 12, numbers should not be outputed to mrngOutput, mrngOutput.innerText should be empty.", function() {
+            mrngAllowNegativeNumbers.checked = true;
+
+            mrngNumberOfRuns.value = -5;
+
+            mrngMinNumber.value = 3;
+
+            mrngMaxNumber.value = 12;
+
+            numbersToGenerate();
+
+            let output = mrngOutput.innerText;
+
+            assert.equal(output, "", `mrngOutput.value ${output}`);
+
+            mrngAllowNegativeNumbers.checked = false;
+            mrngMinNumber.value  = "";
+            mrngMaxNumber.value = "";
+        });
     });
 
     describe("function randomNumberGenerator - floating point number output", function() {
