@@ -60,6 +60,26 @@ describe("Multiple Random Number Generator's Function Tests Suite", function() {
             callCount--;
         }
 
+        // run "makeNumbersToGenerateTest" with floating point numbers.
+        while(true) {
+            let allowNegatives = (randomNumber() <= 5) ? false : true;
+
+            if(callCount <= breakLoop) {
+                callCount = startCount;
+                break;
+            }
+
+            makeNumbersToGenerateTest(
+                allowNegatives,
+                false,
+                returnNumber(10, "integer", "+"),
+                callCount,
+                returnNumber(10, "floating point", "+")
+            )
+
+            callCount--;
+        }
+
         function returnNumber(number = 10, type = "integer", sign = "+") {
             // let randomNumber = Math.floor(Math.random() * 12); // was going to use to randomly decide to return a whole number or floating point number with if condition (randomNumber <= 5);
 
